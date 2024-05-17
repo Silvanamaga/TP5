@@ -1,0 +1,57 @@
+// Funciones de operaciones
+float suma(float a, float b) {
+    return a + b;
+}
+
+float resta(float a, float b) {
+    return a - b;
+}
+
+float multiplicacion(float a, float b) {
+    return a * b;
+}
+
+float division(float a, float b) {
+    if (b != 0) {
+        return a / b;
+    } else {
+        printf("Error: División por cero.\n");
+        return 0;
+    }
+}
+
+int main() {
+    float num1, num2;
+    char op;
+
+    // Leer los números y la operación desde la línea de comandos
+    printf("Ingrese el primer número: ");
+    scanf("%f", &num1);
+
+    printf("Ingrese el segundo número: ");
+    scanf("%f", &num2);
+
+    printf("Ingrese la operación (+, -, *, /): ");
+    scanf(" %c", &op);
+
+    // Realizar la operación correspondiente
+    switch (op) {
+    case '+':
+        printf("El resultado de la suma es: %.2f\n", suma(num1, num2));
+        break;
+    case '-':
+        printf("El resultado de la resta es: %.2f\n", resta(num1, num2));
+        break;
+    case '*':
+        printf("El resultado de la multiplicación es: %.2f\n", multiplicacion(num1, num2));
+        break;
+    case '/':
+        printf("El resultado de la división es: %.2f\n", division(num1, num2));
+        break;
+    default:
+        printf("Operación no válida.\n");
+        break;
+    }
+
+    return 0;
+}

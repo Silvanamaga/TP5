@@ -1,0 +1,34 @@
+import sys
+def calcular_asignacion(sueldo, rango):
+    if rango == 1:
+        asignacion = sueldo * 0.83
+    elif rango == 2:
+        asignacion = sueldo * 1.2
+    elif rango == 3:
+        asignacion = sueldo * 5
+    else:
+        asignacion = 0
+        print("Rango no válido. Por favor, seleccione un rango válido.")
+    return asignacion
+
+def main():
+    if len(sys.argv) != 3:
+        print("Uso: python programa.py <sueldo> <rango>")
+        print("Donde:")
+        print("<sueldo>: El sueldo del empleado.")
+        print("<rango>: El rango del empleado (1, 2 o 3).")
+        sys.exit(1)
+    
+    try:
+        sueldo = float(sys.argv[1])
+        rango = int(sys.argv[2])
+    except ValueError:
+        print("Error: Los valores deben ser numéricos.")
+        sys.exit(1)
+    
+    asignacion = calcular_asignacion(sueldo, rango)
+    if asignacion:
+        print("La asignación del empleado es:", asignacion)
+
+if __name__ == "__main__":
+    main()
